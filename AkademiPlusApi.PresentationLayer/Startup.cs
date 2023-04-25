@@ -1,3 +1,8 @@
+using AkademiPlusApi.BusinessLayer.Abstract;
+using AkademiPlusApi.BusinessLayer.Concrete;
+using AkademiPlusApi.DataAccessLayer.Abstract;
+using AkademiPlusApi.DataAccessLayer.Concrete;
+using AkademiPlusApi.DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +31,17 @@ namespace AkademiPlusApi.PresentationLayer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Context>();
+
+            services.AddScoped<ICustomerDal, EfCustomerDal>();
+            services.AddScoped<ICustomerService, CustomerManager>();
+
+            services.AddScoped<IBalanceDal, EfBalanceDal>();
+            services.AddScoped<IBalanceService, BalanceManager>();
+
+            services.AddScoped<IActivityDal, EfActivityDal>();
+            services.AddScoped<IActivityService, ActivityManager>();
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

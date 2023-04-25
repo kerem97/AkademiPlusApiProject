@@ -17,4 +17,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AkademiPlusApi.EntityLayer\AkademiPlusApi.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
