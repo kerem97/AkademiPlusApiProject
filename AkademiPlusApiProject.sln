@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33423.256
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkademiPlusApi.PresentationLayer", "AkademiPlusApi.PresentationLayer\AkademiPlusApi.PresentationLayer.csproj", "{93884E78-68E8-4D55-9549-810D208188DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AkademiPlusApi.PresentationLayer", "AkademiPlusApi.PresentationLayer\AkademiPlusApi.PresentationLayer.csproj", "{93884E78-68E8-4D55-9549-810D208188DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkademiPlusApi.EntityLayer", "AkademiPlusApi.EntityLayer\AkademiPlusApi.EntityLayer.csproj", "{2A9A520D-E7B1-4E6F-8D6D-865D16CC65DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AkademiPlusApi.EntityLayer", "AkademiPlusApi.EntityLayer\AkademiPlusApi.EntityLayer.csproj", "{2A9A520D-E7B1-4E6F-8D6D-865D16CC65DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkademiPlusApi.DataAccessLayer", "AkademiPlusApi.DataAccessLayer\AkademiPlusApi.DataAccessLayer.csproj", "{6FDA1ADD-ED28-4F5C-A1DA-0E058848E53E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AkademiPlusApi.DataAccessLayer", "AkademiPlusApi.DataAccessLayer\AkademiPlusApi.DataAccessLayer.csproj", "{6FDA1ADD-ED28-4F5C-A1DA-0E058848E53E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkademiPlusApi.BusinessLayer", "AkademiPlusApi.BusinessLayer\AkademiPlusApi.BusinessLayer.csproj", "{34C93A86-F14B-4F58-A121-CCEF3C065EE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AkademiPlusApi.BusinessLayer", "AkademiPlusApi.BusinessLayer\AkademiPlusApi.BusinessLayer.csproj", "{34C93A86-F14B-4F58-A121-CCEF3C065EE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkademiPlusApi.ConsumeLayer", "AkademiPlusApi.ConsumeLayer\AkademiPlusApi.ConsumeLayer.csproj", "{DB5DA0D1-0CD4-47CD-8B46-0072CFF5F96D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{34C93A86-F14B-4F58-A121-CCEF3C065EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34C93A86-F14B-4F58-A121-CCEF3C065EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34C93A86-F14B-4F58-A121-CCEF3C065EE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB5DA0D1-0CD4-47CD-8B46-0072CFF5F96D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5DA0D1-0CD4-47CD-8B46-0072CFF5F96D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5DA0D1-0CD4-47CD-8B46-0072CFF5F96D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5DA0D1-0CD4-47CD-8B46-0072CFF5F96D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

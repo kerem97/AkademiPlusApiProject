@@ -1,0 +1,31 @@
+﻿@model List<AkademiPlusApi.ConsumeLayer.Models.CustomerViewModels.CustomerListViewModel>
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Hesap Numarası</th>
+            <th>Ad Soyad</th>
+            <th>Adres</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Hesap Hareketleri</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.CustomerID</td>
+                <td>@x.AccountNumber</td>
+                <td>@x.CustomerName @x.CustomerSurname</td>
+                <td>@x.CustomerCity / @x.CustomerDistrict</td>
+                <td><a href="/Customer/DeleteCustomer/@x.CustomerID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Customer/UpdateCustomer/@x.CustomerID" class="btn btn-outline-warning">Güncelle</a></td>
+                <td><a href="#" class="btn btn-outline-dark">Hesap Hareketleri</a></td>
+            </tr>
+        }
+    </table>
+</div>
