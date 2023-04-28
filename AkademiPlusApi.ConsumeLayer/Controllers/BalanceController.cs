@@ -1,4 +1,4 @@
-﻿using AkademiPlusApi.ConsumeLayer.Models.CustomerViewModels;
+﻿using AkademiPlusApi.ConsumeLayer.Models.BalanceViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace AkademiPlusApi.ConsumeLayer.Controllers
 {
-    public class CustomerController : Controller
+    public class BalanceController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public CustomerController(IHttpClientFactory httpClientFactory)
+        public BalanceController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
@@ -22,28 +22,27 @@ namespace AkademiPlusApi.ConsumeLayer.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44394/api/Customer");
+            var responseMessage = await client.GetAsync("https://localhost:44394/api/Balance");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<CustomerListViewModel>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<BalanceListViewModel>>(jsonData);
                 return View(values);
             }
             return View();
         }
         [HttpGet]
-        public IActionResult AddCustomer()
+        public IActionResult AddBalance()
         {
             return View();
         }
-
         [HttpPost]
-        public async Task<IActionResult> AddCustomer(CreateCustomerViewModel createCustomerViewModel)
+        public async Task<IActionResult> AddBalance(BalanceAddViewModel balanceAddViewModel)
         {
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createCustomerViewModel);
+            var jsonData = JsonConvert.SerializeObject(balanceAddViewModel);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:44394/api/Customer", stringContent);
+            var responseMessage = await client.PostAsync("https://localhost:44394/api/Balance", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -51,10 +50,10 @@ namespace AkademiPlusApi.ConsumeLayer.Controllers
             return View();
         }
 
-        public async Task<IActionResult> DeleteCustomer(int id)
+        public async Task<IActionResult> DeleteBalance(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync("https://localhost:44394/api/Customer?id=" + id);
+            var responseMessage = await client.DeleteAsync("https://localhost:44394/api/Balance?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -63,28 +62,26 @@ namespace AkademiPlusApi.ConsumeLayer.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> UpdateCustomer(int id)
+        public async Task<IActionResult> UpdateBalance(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:44394/api/Customer/" + id);
+            var responseMessage = await client.GetAsync("https://localhost:44394/api/Balance/" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateCustomerViewModel>(jsonData);
+                var values = JsonConvert.DeserializeObject<UpdateBalanceViewModel>(jsonData);
                 return View(values);
             }
             return View();
+
         }
-
         [HttpPost]
-
-        public async Task<IActionResult> UpdateCustomer(UpdateCustomerViewModel updateCustomerViewModel)
+        public async Task<IActionResult> UpdateBalance(UpdateBalanceViewModel updateBalanceViewModel)
         {
-
             var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateCustomerViewModel);
+            var jsonData = JsonConvert.SerializeObject(updateBalanceViewModel);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:44394/api/Customer/", stringContent);
+            var responseMessage = await client.PutAsync("https://localhost:44394/api/Balance/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
